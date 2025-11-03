@@ -1,1 +1,1 @@
-web: python -m musicbot.bot
+worker: python bot.py
