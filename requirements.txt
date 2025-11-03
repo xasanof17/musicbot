@@ -1,9 +1,23 @@
-aiogram
-python-dotenv
-yt-dlp
-load_dotenv
-pyacoustid
-chromaprint
-aiohttp
-musicbrainzngs
-spotipy
+# ─── Core Telegram Bot Framework ─────────────────────────────
+aiogram==3.13.1
+
+# ─── Async Utilities & HTTP ──────────────────────────────────
+aiohttp==3.10.10
+asyncio==3.4.3
+aiofiles==23.2.1
+requests==2.32.3
+
+# ─── Media Downloading & Recognition ─────────────────────────
+yt-dlp==2025.10.22
+ffmpeg-python==0.2.0
+acoustid==1.3.0
+python-magic==0.4.27
+
+# ─── Logging & Environment Management ────────────────────────
+python-dotenv==1.0.1
+loguru==0.7.2
+colorama==0.4.6
+
+# ─── Misc (safe defaults for Railway) ─────────────────────────
+pydantic==2.9.2
+typing-extensions==4.12.2
