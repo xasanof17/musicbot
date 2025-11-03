@@ -1,0 +1,9 @@
+aiogram
+python-dotenv
+yt-dlp
+load_dotenv
+pyacoustid
+chromaprint
+aiohttp
+musicbrainzngs
+spotipy
