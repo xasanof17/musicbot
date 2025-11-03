@@ -1,4 +1,3 @@
-# utils/recognizer.py
 import os
 import re
 import asyncio
@@ -6,7 +5,7 @@ import logging
 import tempfile
 import subprocess
 import aiohttp
-import pyacoustid
+import acoustid  # ✅ correct module name for pyacoustid
 import musicbrainzngs
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
@@ -120,10 +119,11 @@ async def identify_audio(file_path: str, hint: str | None = None) -> str:
         logger.info(f"🎵 Starting fingerprint scan: {file_path}")
         prepared = await _convert_to_wav(file_path)
 
+        # run acoustid.match() in executor since it’s blocking
         loop = asyncio.get_event_loop()
         try:
             results = await loop.run_in_executor(
-                None, lambda: list(pyacoustid.match(ACOUSTID_API_KEY, prepared, force_fpcalc=True))
+                None, lambda: list(acoustid.match(ACOUSTID_API_KEY, prepared))
             )
         except Exception as e:
             logger.error(f"AcoustID failed: {e}")
